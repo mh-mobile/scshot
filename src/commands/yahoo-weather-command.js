@@ -1,10 +1,4 @@
-const {
-  Command,
-  puppeteer,
-  terminalImage,
-  FileUtil,
-  PageUtil
-} = require('./command.js')
+const { Command, puppeteer, PageUtil } = require('./command.js')
 
 class YahooWeatherCommand extends Command {
   constructor(searchWord) {
@@ -27,7 +21,6 @@ class YahooWeatherCommand extends Command {
     })
     const page = await browser.newPage()
 
-    // ユーザー固有のGithubのページにアクセス
     await page.goto(this.url)
     await page.setViewport({
       width: 800,
@@ -41,28 +34,18 @@ class YahooWeatherCommand extends Command {
     await page.goto(link)
 
     const promises = this.targetSelectors.map((targetSelector) => {
-      return this.screenshotSelector.bind(null, page, targetSelector)
+      return PageUtil.screenshotSelector.bind(
+        null,
+        page,
+        targetSelector,
+        'yahoo-wether.png'
+      )
     })
 
     for (const promise of promises) {
       await promise()
     }
     browser.close()
-  }
-
-  async screenshotSelector(page, targetSelector) {
-    await page.waitForSelector(targetSelector)
-    const clip = await PageUtil.getElementClientRect(page, targetSelector)
-
-    const tempfilePath = FileUtil.getTempfilePath('yahoo-wether.png')
-
-    // Graph画像を一時ディレクトリに保存
-    await page.screenshot({ clip, path: tempfilePath })
-
-    // ターミナルで画像を表示
-    console.log(
-      await terminalImage.file(tempfilePath, { width: '70%', height: '70%' })
-    )
   }
 }
 

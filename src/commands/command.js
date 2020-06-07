@@ -1,7 +1,5 @@
 const puppeteer = require('puppeteer')
-const terminalImage = require('terminal-image')
 const delay = require('delay')
-const FileUtil = require('../util/FileUitl.js')
 const PageUtil = require('../util/PageUtil.js')
 
 class Command {
@@ -13,8 +11,6 @@ class Command {
 module.exports = {
   Command,
   puppeteer,
-  terminalImage,
   delay,
-  FileUtil,
   PageUtil
 }

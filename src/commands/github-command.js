@@ -1,10 +1,4 @@
-const {
-  Command,
-  puppeteer,
-  terminalImage,
-  FileUtil,
-  PageUtil
-} = require('./command.js')
+const { Command, puppeteer, PageUtil } = require('./command.js')
 
 class GithubCommand extends Command {
   constructor(userName) {
@@ -20,7 +14,6 @@ class GithubCommand extends Command {
     })
     const page = await browser.newPage()
 
-    // ユーザー固有のGithubのページにアクセス
     await page.goto(this.url)
     await page.waitForSelector(this.targetSelector)
     await page.setViewport({
@@ -28,18 +21,12 @@ class GithubCommand extends Command {
       height: await page.evaluate(() => document.body.clientHeight)
     })
 
-    // Graph画像の位置を算出
-    const clip = await PageUtil.getElementClientRect(page, this.targetSelector)
-    const tempfilePath = FileUtil.getTempfilePath('graph.png')
-
-    // Graph画像を一時ディレクトリに保存
-    await page.screenshot({ clip, path: tempfilePath })
-    browser.close()
-
-    // ターミナルで画像を表示
-    console.log(
-      await terminalImage.file(tempfilePath, { width: '70%', height: '70%' })
+    await PageUtil.screenshotSelector(
+      page,
+      this.targetSelector,
+      'github-grass.png'
     )
+    browser.close()
   }
 }
 module.exports = GithubCommand
