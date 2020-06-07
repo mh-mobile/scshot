@@ -1,7 +1,7 @@
 const { Command, puppeteer, PageUtil } = require('./command.js')
 
 class YahooWeatherCommand extends Command {
-  constructor(searchWord) {
+  constructor (searchWord) {
     super()
     this.searchWord = searchWord
     this.searchTableSelector = '.serch-table a'
@@ -15,7 +15,7 @@ class YahooWeatherCommand extends Command {
     )}`
   }
 
-  async execute() {
+  async execute () {
     const browser = await puppeteer.launch({
       headless: true
     })

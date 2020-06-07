@@ -3,7 +3,7 @@ const delay = require('delay')
 const PageUtil = require('../util/PageUtil.js')
 
 class Command {
-  execute() {
+  execute () {
     throw new Error('implemnet this method')
   }
 }

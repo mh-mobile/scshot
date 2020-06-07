@@ -1,13 +1,13 @@
 const { Command, puppeteer, delay, PageUtil } = require('./command.js')
 
 class AmeshCommand extends Command {
-  constructor() {
+  constructor () {
     super()
     this.targetSelector = '.meshMapArea-wrapper'
     this.url = 'https://tokyo-ame.jwa.or.jp/index.html'
   }
 
-  async execute() {
+  async execute () {
     const browser = await puppeteer.launch({
       headless: true
     })

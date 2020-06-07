@@ -2,7 +2,7 @@ const terminalImage = require('terminal-image')
 const FileUtil = require('./FileUitl.js')
 
 class PageUtil {
-  static getElementClientRect(page, targetSelector) {
+  static getElementClientRect (page, targetSelector) {
     return page.evaluate((selector) => {
       const graphElm = document.querySelector(selector)
       const {
@@ -15,7 +15,7 @@ class PageUtil {
     }, targetSelector)
   }
 
-  static async takeScreenshotSelector(page, targetSelector, savedFilename) {
+  static async takeScreenshotSelector (page, targetSelector, savedFilename) {
     await page.waitForSelector(targetSelector)
     const clip = await PageUtil.getElementClientRect(page, targetSelector)
 
@@ -30,7 +30,7 @@ class PageUtil {
     )
   }
 
-  static async getLink(page, targetSelector) {
+  static async getLink (page, targetSelector) {
     return page.evaluate((selector) => {
       const aLink = document.querySelector(selector)
       if (aLink == null) {

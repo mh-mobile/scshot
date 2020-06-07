@@ -1,7 +1,7 @@
 const { program } = require('commander')
 
 class ScshotCLI {
-  run(argv) {
+  run (argv) {
     try {
       program
         .name('scshot')

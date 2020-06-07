@@ -1,14 +1,14 @@
 const { Command, puppeteer, PageUtil } = require('./command.js')
 
 class GithubGrassCommand extends Command {
-  constructor(userName) {
+  constructor (userName) {
     super()
     this.userName = userName
     this.targetSelector = '.js-calendar-graph'
     this.url = `https://github.com/users/${this.userName}/contributions`
   }
 
-  async execute() {
+  async execute () {
     const browser = await puppeteer.launch({
       headless: true
     })
