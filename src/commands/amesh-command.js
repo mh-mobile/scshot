@@ -24,7 +24,11 @@ class AmeshCommand extends Command {
       height: await page.evaluate(() => document.body.clientHeight)
     })
 
-    await PageUtil.screenshotSelector(page, this.targetSelector, 'amesh.png')
+    await PageUtil.takeScreenshotSelector(
+      page,
+      this.targetSelector,
+      'amesh.png'
+    )
     browser.close()
   }
 }

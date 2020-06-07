@@ -21,7 +21,7 @@ class GithubCommand extends Command {
       height: await page.evaluate(() => document.body.clientHeight)
     })
 
-    await PageUtil.screenshotSelector(
+    await PageUtil.takeScreenshotSelector(
       page,
       this.targetSelector,
       'github-grass.png'

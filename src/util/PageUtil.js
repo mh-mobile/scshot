@@ -15,7 +15,7 @@ class PageUtil {
     }, targetSelector)
   }
 
-  static async screenshotSelector(page, targetSelector, savedFilename) {
+  static async takeScreenshotSelector(page, targetSelector, savedFilename) {
     await page.waitForSelector(targetSelector)
     const clip = await PageUtil.getElementClientRect(page, targetSelector)
 

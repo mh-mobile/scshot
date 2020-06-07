@@ -30,8 +30,8 @@ class YahooWeatherCommand extends Command {
     const link = await PageUtil.getLink(page, this.searchTableSelector)
     await page.goto(link)
 
-    const promises = this.targetSelectors.map((targetSelector) => {
-      return PageUtil.screenshotSelector.bind(
+    const screenshotPromises = this.targetSelectors.map((targetSelector) => {
+      return PageUtil.takeScreenshotSelector.bind(
         null,
         page,
         targetSelector,
@@ -39,8 +39,8 @@ class YahooWeatherCommand extends Command {
       )
     })
 
-    for (const promise of promises) {
-      await promise()
+    for (const screenshotPromise of screenshotPromises) {
+      await screenshotPromise()
     }
     browser.close()
   }
