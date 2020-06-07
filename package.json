@@ -1,8 +1,10 @@
 {
   "name": "scshot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "scshot is a CLI tool for screenshots of particular web page location.",
+  "bin": {
+    "scshot": "./src/scshot.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src",
