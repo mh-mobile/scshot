@@ -2,6 +2,10 @@
   "name": "scshot",
   "version": "1.0.0",
   "description": "scshot is a CLI tool for screenshots of particular web page location.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mh-mobile/scshot.git"
+  },
   "bin": {
     "scshot": "./src/scshot.js"
   },
