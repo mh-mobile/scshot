@@ -1,6 +1,6 @@
 # scshot
 
-`scshot` is a CLI tool for screenshots of  particular web page location.
+`scshot` is a CLI tool for screenshots of particular web page location.
 
 ## Installation
 
