@@ -17,7 +17,7 @@ class ScshotCLI {
         .command('amesh', 'Display the images of Tokyo Amesh')
         .parse(argv)
     } catch (e) {
-      console.log(e)
+      console.log(e.message)
     }
   }
 }

@@ -32,7 +32,11 @@ class PageUtil {
 
   static async getLink(page, targetSelector) {
     return page.evaluate((selector) => {
-      return document.querySelector(selector).href
+      const aLink = document.querySelector(selector)
+      if (aLink == null) {
+        throw new Error('search result not found')
+      }
+      return aLink.href
     }, targetSelector)
   }
 }
