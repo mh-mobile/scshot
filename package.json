@@ -6,6 +6,10 @@
     "type": "git",
     "url": "https://github.com/mh-mobile/scshot.git"
   },
+  "bugs": {
+    "url": "https://github.com/mh-mobile/scshot/issues"
+  },
+  "homepage": "https://github.com/mh-mobile/scshot",
   "bin": {
     "scshot": "./src/scshot.js"
   },
