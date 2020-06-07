@@ -11,7 +11,7 @@ class ScshotCLI {
         .command('amesh', 'fetch amesh')
         .parse(argv)
     } catch (e) {
-      console.log(`${e}`)
+      console.log(e)
     }
   }
 }
