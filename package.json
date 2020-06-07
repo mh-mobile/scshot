@@ -9,7 +9,7 @@
     "format": "prettier --write 'src/**/*.js'"
   },
   "author": "mh-mobile",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "commander": "^5.1.0",
     "delay": "^4.3.0",
