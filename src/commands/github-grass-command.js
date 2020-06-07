@@ -1,6 +1,6 @@
 const { Command, puppeteer, PageUtil } = require('./command.js')
 
-class GithubCommand extends Command {
+class GithubGrassCommand extends Command {
   constructor(userName) {
     super()
     this.userName = userName
@@ -29,4 +29,4 @@ class GithubCommand extends Command {
     browser.close()
   }
 }
-module.exports = GithubCommand
+module.exports = GithubGrassCommand

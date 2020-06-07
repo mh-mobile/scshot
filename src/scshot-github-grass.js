@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const GithubCommand = require('./commands/github-command.js')
+const GithubGrassCommand = require('./commands/github-grass-command.js')
 
 const { program } = require('commander')
 program.parse(process.argv)
@@ -9,5 +9,5 @@ if (program.args.length === 0) {
   process.exit(-1)
 }
 
-const githubCommand = new GithubCommand(program.args[0])
-githubCommand.execute()
+const githubGrassCommand = new GithubGrassCommand(program.args[0])
+githubGrassCommand.execute()
