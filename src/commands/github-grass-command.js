@@ -14,7 +14,11 @@ class GithubGrassCommand extends Command {
     })
     const page = await browser.newPage()
 
-    await page.goto(this.url)
+    const response = await page.goto(this.url)
+    if (response.status() === 404) {
+      console.log(`given user [${this.userName}] not found`)
+      process.exit(-1)
+    }
     await page.waitForSelector(this.targetSelector)
     await page.setViewport({
       width: 800,
