@@ -29,6 +29,12 @@ class PageUtil {
       await terminalImage.file(tempfilePath, { width: '70%', height: '70%' })
     )
   }
+
+  static async getLink(page, targetSelector) {
+    return page.evaluate((selector) => {
+      return document.querySelector(selector).href
+    }, targetSelector)
+  }
 }
 
 module.exports = PageUtil

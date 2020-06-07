@@ -27,10 +27,7 @@ class YahooWeatherCommand extends Command {
       height: await page.evaluate(() => document.body.clientHeight)
     })
 
-    const link = await page.evaluate((selector) => {
-      return document.querySelector(selector).href
-    }, this.searchTableSelector)
-
+    const link = await PageUtil.getLink(page, this.searchTableSelector)
     await page.goto(link)
 
     const promises = this.targetSelectors.map((targetSelector) => {
