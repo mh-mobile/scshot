@@ -4,7 +4,7 @@ const { program } = require('commander')
 program.parse(process.argv)
 
 if (program.args.length === 0) {
-  console.log('error: keyword is required.')
+  console.log('error: address/zipcode is required.')
   process.exit(-1)
 }
 
